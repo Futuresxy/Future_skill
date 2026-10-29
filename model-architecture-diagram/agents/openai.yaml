@@ -1,0 +1,4 @@
+interface:
+  display_name: "模型结构分析与绘图"
+  short_description: "基于模型代码、仓库和技术报告追溯结构，绘制 InfraTech 风格架构图"
+  default_prompt: "使用 $model-architecture-diagram 分析指定模型代码、仓库或报告，生成有证据支撑的模型结构图及可编辑源文件。"

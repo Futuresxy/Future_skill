@@ -1,0 +1,284 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1800" viewBox="0 0 1600 1800" role="img" aria-labelledby="diagram-title">
+<title id="diagram-title">Tiny Decoder · 代码驱动的模型结构图示例</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<rect width="1600" height="1800" fill="#FFFFFF"/>
+<g font-family="Arial, Noto Sans CJK SC, PingFang SC, Microsoft YaHei, sans-serif">
+<text x="800.0" y="46" text-anchor="middle" font-size="32" font-weight="700" fill="#222222"><tspan x="800.0" dy="0">Tiny Decoder · 代码驱动的模型结构图示例</tspan></text>
+<text x="800.0" y="76" text-anchor="middle" font-size="15" font-weight="400" fill="#555555"><tspan x="800.0" dy="0">教学模型 / 未训练 · 结构依据 assets/example_model.py · 风格参考 InfraTech models</tspan></text>
+<g id="decoder">
+<title>2 × Decoder Block</title>
+<rect x="60" y="700" width="450" height="740" rx="10" fill="none" stroke="#444444" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="72" y="727" text-anchor="start" font-size="22" font-weight="700" fill="#444444"><tspan x="72" dy="0">2 × Decoder Block</tspan></text>
+</g>
+<g id="mlp_detail">
+<title>SwiGLU MLP</title>
+<rect x="650" y="140" width="880" height="520" rx="10" fill="none" stroke="#91CC46" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="662" y="167" text-anchor="start" font-size="22" font-weight="700" fill="#91CC46"><tspan x="662" dy="0">SwiGLU MLP</tspan></text>
+</g>
+<g id="attention_detail">
+<title>Causal Self-Attention · MHA</title>
+<rect x="650" y="760" width="880" height="850" rx="10" fill="none" stroke="#FF9E10" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="662" y="787" text-anchor="start" font-size="22" font-weight="700" fill="#FF9E10"><tspan x="662" dy="0">Causal Self-Attention · MHA</tspan></text>
+</g>
+<g id="input_to_emb">
+<title>assets/example_model.py:71</title>
+<polyline points="330,1620 330,1554" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="emb_to_norm">
+<title>assets/example_model.py:57,71-73</title>
+<polyline points="330,1510 330,1374" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="norm_to_attention">
+<title>assets/example_model.py:57</title>
+<polyline points="330,1330 330,1254" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="attention_to_add">
+<title>assets/example_model.py:57</title>
+<polyline points="330,1210 330,1166" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="add_to_norm2">
+<title>assets/example_model.py:58</title>
+<polyline points="330,1130 330,1064" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="norm2_to_mlp">
+<title>assets/example_model.py:58</title>
+<polyline points="330,1020 330,944" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="mlp_to_add">
+<title>assets/example_model.py:58</title>
+<polyline points="330,900 330,856" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="blocks_to_final">
+<title>assets/example_model.py:72-74</title>
+<polyline points="330,820 330,594" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="norm_to_head">
+<title>assets/example_model.py:74</title>
+<polyline points="330,550 330,474" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="residual_attention">
+<title>assets/example_model.py:57</title>
+<polyline points="330,1400 135,1400 135,1148 312,1148" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="residual_mlp">
+<title>assets/example_model.py:58</title>
+<polyline points="330,1080 165,1080 165,838 312,838" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="logits">
+<title>assets/example_model.py:68,74</title>
+<polyline points="330,430 330,370" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="mlp_input">
+<title>assets/example_model.py:47</title>
+<polyline points="1080,625 1080,590 850,590 850,559" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="mlp_gate_input">
+<title>assets/example_model.py:47</title>
+<polyline points="1080,590 1305,590 1305,559" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="gate_to_silu">
+<title>assets/example_model.py:47</title>
+<polyline points="1305,515 1305,459" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="up_to_product">
+<title>assets/example_model.py:47</title>
+<polyline points="850,515 850,373 1062,373" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="silu_to_product">
+<title>assets/example_model.py:47</title>
+<polyline points="1305,415 1305,373 1098,373" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="product_to_down">
+<title>assets/example_model.py:47</title>
+<polyline points="1080,355 1080,289" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="mlp_output">
+<title>assets/example_model.py:47</title>
+<polyline points="1080,245 1080,200" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="attention_input">
+<title>assets/example_model.py:33-34</title>
+<polyline points="1080,1575 1080,1540 835,1540 835,1519" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="attention_k_input">
+<title>assets/example_model.py:33-34</title>
+<polyline points="1080,1540 1080,1519" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="attention_v_input">
+<title>assets/example_model.py:33-34</title>
+<polyline points="1080,1540 1325,1540 1325,1519" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="q_to_reshape">
+<title>assets/example_model.py:33-34</title>
+<polyline points="835,1475 835,1414" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="k_to_reshape">
+<title>assets/example_model.py:33-34</title>
+<polyline points="1080,1475 1080,1414" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="v_to_reshape">
+<title>assets/example_model.py:33-34</title>
+<polyline points="1325,1475 1325,1414" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="reshape_to_sdpa">
+<title>assets/example_model.py:33-35</title>
+<polyline points="1080,1360 1080,1278" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="sdpa_to_merge">
+<title>assets/example_model.py:35-36</title>
+<polyline points="1080,1210 1080,1113" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="merge_to_out">
+<title>assets/example_model.py:36</title>
+<polyline points="1075,1065 1075,984 1080,984" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="attention_output">
+<title>assets/example_model.py:36</title>
+<polyline points="1080,940 1080,880" fill="none" stroke="#444444" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</g>
+<g id="mlp_expand_top">
+<title></title>
+<polyline points="440,900 650,140" fill="none" stroke="#91CC46" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="8 5"/>
+</g>
+<g id="mlp_expand_bottom">
+<title></title>
+<polyline points="440,944 650,660" fill="none" stroke="#91CC46" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="8 5"/>
+</g>
+<g id="attn_expand_top">
+<title></title>
+<polyline points="440,1210 650,760" fill="none" stroke="#FF9E10" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="8 5"/>
+</g>
+<g id="attn_expand_bottom">
+<title></title>
+<polyline points="440,1254 650,1610" fill="none" stroke="#FF9E10" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="8 5"/>
+</g>
+<g id="input_ids">
+<title>assets/example_model.py:70-71</title>
+<rect x="220" y="1620" width="220" height="44" rx="8" fill="#FFFFFF" stroke="#2997EC" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="330.0" y="1648.3" text-anchor="middle" font-size="18" font-weight="700" fill="#2997EC"><tspan x="330.0" dy="0">Input IDs · [B, T]</tspan></text>
+</g>
+<g id="embedding">
+<title>assets/example_model.py:65,71</title>
+<rect x="220" y="1510" width="220" height="44" rx="8" fill="#2997EC" stroke="#2997EC" stroke-width="1.5"/>
+<text x="330.0" y="1538.3" text-anchor="middle" font-size="18" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">Embedding</tspan></text>
+</g>
+<g id="norm1">
+<title>assets/example_model.py:53,57</title>
+<rect x="220" y="1330" width="220" height="44" rx="8" fill="#2997EC" stroke="#2997EC" stroke-width="1.5"/>
+<text x="330.0" y="1358.3" text-anchor="middle" font-size="18" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">RMSNorm</tspan></text>
+</g>
+<g id="attention">
+<title>assets/example_model.py:54,57</title>
+<rect x="220" y="1210" width="220" height="44" rx="8" fill="#FFFFFF" stroke="#FF9E10" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="330.0" y="1238.3" text-anchor="middle" font-size="18" font-weight="700" fill="#FF9E10"><tspan x="330.0" dy="0">Self-Attention</tspan></text>
+</g>
+<g id="norm2">
+<title>assets/example_model.py:53,58</title>
+<rect x="220" y="1020" width="220" height="44" rx="8" fill="#2997EC" stroke="#2997EC" stroke-width="1.5"/>
+<text x="330.0" y="1048.3" text-anchor="middle" font-size="18" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">RMSNorm</tspan></text>
+</g>
+<g id="mlp">
+<title>assets/example_model.py:54,58</title>
+<rect x="220" y="900" width="220" height="44" rx="8" fill="#FFFFFF" stroke="#91CC46" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="330.0" y="928.3" text-anchor="middle" font-size="18" font-weight="700" fill="#91CC46"><tspan x="330.0" dy="0">SwiGLU MLP</tspan></text>
+</g>
+<g id="final_norm">
+<title>assets/example_model.py:67,74</title>
+<rect x="220" y="550" width="220" height="44" rx="8" fill="#2997EC" stroke="#2997EC" stroke-width="1.5"/>
+<text x="330.0" y="578.3" text-anchor="middle" font-size="18" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">RMSNorm</tspan></text>
+</g>
+<g id="head">
+<title>assets/example_model.py:68,74</title>
+<rect x="220" y="430" width="220" height="44" rx="8" fill="#2997EC" stroke="#2997EC" stroke-width="1.5"/>
+<text x="330.0" y="458.3" text-anchor="middle" font-size="18" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">LM Head</tspan></text>
+</g>
+<g id="add1">
+<title>assets/example_model.py:57</title>
+<ellipse cx="330.0" cy="1148.0" rx="18.0" ry="18.0" fill="#2997EC" stroke="#333333" stroke-width="1.3"/>
+<text x="330.0" y="1157.1" text-anchor="middle" font-size="26" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">+</tspan></text>
+</g>
+<g id="add2">
+<title>assets/example_model.py:58</title>
+<ellipse cx="330.0" cy="838.0" rx="18.0" ry="18.0" fill="#2997EC" stroke="#333333" stroke-width="1.3"/>
+<text x="330.0" y="847.1" text-anchor="middle" font-size="26" font-weight="400" fill="#FFFFFF"><tspan x="330.0" dy="0">+</tspan></text>
+</g>
+<g id="up">
+<title>assets/example_model.py:43</title>
+<polygon points="755,515 945,515 922.2,559 777.8,559" fill="#91CC46"/>
+<text x="850.0" y="543.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="850.0" dy="0">Linear (up)</tspan></text>
+</g>
+<g id="gate">
+<title>assets/example_model.py:42</title>
+<polygon points="1210,515 1400,515 1377.2,559 1232.8,559" fill="#91CC46"/>
+<text x="1305.0" y="543.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1305.0" dy="0">Linear (gate)</tspan></text>
+</g>
+<g id="silu">
+<title>assets/example_model.py:47</title>
+<rect x="1210" y="415" width="190" height="44" rx="8" fill="#91CC46" stroke="#91CC46" stroke-width="1.5"/>
+<text x="1305.0" y="443.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1305.0" dy="0">SiLU</tspan></text>
+</g>
+<g id="product">
+<title>assets/example_model.py:47</title>
+<ellipse cx="1080.0" cy="373.0" rx="18.0" ry="18.0" fill="#91CC46" stroke="#333333" stroke-width="1.3"/>
+<text x="1080.0" y="382.1" text-anchor="middle" font-size="26" font-weight="400" fill="#202020"><tspan x="1080.0" dy="0">×</tspan></text>
+</g>
+<g id="down">
+<title>assets/example_model.py:44</title>
+<polygon points="996.4,245 1163.6,245 1190,289 970,289" fill="#91CC46"/>
+<text x="1080.0" y="273.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1080.0" dy="0">Linear (down)</tspan></text>
+</g>
+<g id="q">
+<title>assets/example_model.py:26,33-34</title>
+<rect x="755" y="1475" width="160" height="44" rx="8" fill="#FF9E10" stroke="#FF9E10" stroke-width="1.5"/>
+<text x="835.0" y="1503.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="835.0" dy="0">Linear (Q)</tspan></text>
+</g>
+<g id="k">
+<title>assets/example_model.py:27,33-34</title>
+<rect x="1000" y="1475" width="160" height="44" rx="8" fill="#FF9E10" stroke="#FF9E10" stroke-width="1.5"/>
+<text x="1080.0" y="1503.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1080.0" dy="0">Linear (K)</tspan></text>
+</g>
+<g id="v">
+<title>assets/example_model.py:28,33-34</title>
+<rect x="1245" y="1475" width="160" height="44" rx="8" fill="#FF9E10" stroke="#FF9E10" stroke-width="1.5"/>
+<text x="1325.0" y="1503.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1325.0" dy="0">Linear (V)</tspan></text>
+</g>
+<g id="reshape">
+<title>assets/example_model.py:33-34</title>
+<rect x="755" y="1360" width="650" height="54" rx="8" fill="#FF9E10" stroke="#FF9E10" stroke-width="1.5"/>
+<text x="1080.0" y="1393.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1080.0" dy="0">Reshape + Transpose (Q, K, V)</tspan></text>
+</g>
+<g id="sdpa">
+<title>assets/example_model.py:35</title>
+<rect x="755" y="1210" width="650" height="68" rx="8" fill="#8035A5" stroke="#8035A5" stroke-width="1.5"/>
+<text x="1080.0" y="1238.775" text-anchor="middle" font-size="19" font-weight="400" fill="#FFFFFF"><tspan x="1080.0" dy="0">SDPA · causal mask</tspan><tspan x="1080.0" dy="23.75">softmax(QKᵀ / √64 + mask) V</tspan></text>
+</g>
+<g id="merge">
+<title>assets/example_model.py:36</title>
+<rect x="915" y="1065" width="320" height="48" rx="8" fill="#FF9E10" stroke="#FF9E10" stroke-width="1.5"/>
+<text x="1075.0" y="1095.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1075.0" dy="0">Transpose + Merge Heads</tspan></text>
+</g>
+<g id="out_proj">
+<title>assets/example_model.py:29,36</title>
+<rect x="970" y="940" width="220" height="44" rx="8" fill="#FF9E10" stroke="#FF9E10" stroke-width="1.5"/>
+<text x="1080.0" y="968.3" text-anchor="middle" font-size="18" font-weight="400" fill="#202020"><tspan x="1080.0" dy="0">Linear (output)</tspan></text>
+</g>
+<text x="350" y="390" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="350" dy="0">[B, T, 1024]</tspan></text>
+<text x="1100" y="330" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="1100" dy="0">[B, T, 768]</tspan></text>
+<text x="1100" y="218" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="1100" dy="0">[B, T, 256]</tspan></text>
+<text x="1100" y="1320" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="1100" dy="0">Q / K / V: [B, 4, T, 64]</tspan></text>
+<text x="1100" y="1160" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="1100" dy="0">[B, 4, T, 64]</tspan></text>
+<text x="1100" y="1030" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="1100" dy="0">[B, T, 256]</tspan></text>
+<text x="1100" y="910" text-anchor="start" font-size="15" font-weight="400" fill="#222222"><tspan x="1100" dy="0">[B, T, 256]</tspan></text>
+<text id="config" x="90" y="180" text-anchor="start" font-size="21" font-weight="400" fill="#444444"><tspan x="90" dy="0">示例配置（来自 Config）</tspan><tspan x="90" dy="26.25">D = 256, H = 4, dh = 64</tspan><tspan x="90" dy="26.25">FFN intermediate = 768</tspan><tspan x="90" dy="26.25">L = 2, vocabulary = 1024</tspan></text>
+<text id="scope" x="90" y="330" text-anchor="start" font-size="18" font-weight="400" fill="#444444"><tspan x="90" dy="0">纯文本因果解码器</tspan><tspan x="90" dy="22.5">无 RoPE / 无 KV cache / 无 MoE</tspan></text>
+<text id="flow_legend" x="90" y="610" text-anchor="start" font-size="17" font-weight="400" fill="#444444"><tspan x="90" dy="0">↑ 实线箭头：数据流</tspan><tspan x="90" dy="21.25">- - 彩色虚线：模块展开</tspan><tspan x="90" dy="21.25">+ 残差相加    × 逐元素乘法</tspan></text>
+<text id="repeat_note" x="90" y="1470" text-anchor="start" font-size="17" font-weight="400" fill="#444444"><tspan x="90" dy="0">相同 block 顺序执行 2 次</tspan></text>
+<text id="hidden_shape" x="350" y="1580" text-anchor="start" font-size="15" font-weight="400" fill="#444444"><tspan x="350" dy="0">[B, T, 256]</tspan></text>
+<text id="mlp_input_shape" x="1100" y="623" text-anchor="start" font-size="15" font-weight="400" fill="#444444"><tspan x="1100" dy="0">[B, T, 256]</tspan></text>
+<text id="up_weight" x="730" y="490" text-anchor="start" font-size="15" font-weight="400" fill="#444444"><tspan x="730" dy="0">256 → 768</tspan></text>
+<text id="gate_weight" x="1220" y="490" text-anchor="start" font-size="15" font-weight="400" fill="#444444"><tspan x="1220" dy="0">256 → 768</tspan></text>
+<text id="attention_params" x="675" y="830" text-anchor="start" font-size="17" font-weight="400" fill="#444444"><tspan x="675" dy="0">H = 4, dh = 64; Q/K/V 投影维度均为 256</tspan></text>
+<text id="attention_input_shape" x="1100" y="1575" text-anchor="start" font-size="15" font-weight="400" fill="#444444"><tspan x="1100" dy="0">[B, T, 256]</tspan></text>
+<text id="footer" x="800" y="1740" text-anchor="middle" font-size="17" font-weight="400" fill="#444444"><tspan x="800" dy="0">结构证据与逐项来源见 example_analysis.md · 此教学示例不代表任何真实发布模型</tspan></text>
+</g>
+</svg>

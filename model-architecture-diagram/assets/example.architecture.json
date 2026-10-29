@@ -1,0 +1,903 @@
+{
+  "width": 1600,
+  "height": 1800,
+  "title": "Tiny Decoder · 代码驱动的模型结构图示例",
+  "source_note": "教学模型 / 未训练 · 结构依据 assets/example_model.py · 风格参考 InfraTech models",
+  "panels": [
+    {
+      "id": "decoder",
+      "x": 60,
+      "y": 700,
+      "w": 450,
+      "h": 740,
+      "label": "2 × Decoder Block",
+      "role": "neutral"
+    },
+    {
+      "id": "mlp_detail",
+      "x": 650,
+      "y": 140,
+      "w": 880,
+      "h": 520,
+      "label": "SwiGLU MLP",
+      "role": "ffn"
+    },
+    {
+      "id": "attention_detail",
+      "x": 650,
+      "y": 760,
+      "w": 880,
+      "h": 850,
+      "label": "Causal Self-Attention · MHA",
+      "role": "attention"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "input_ids",
+      "x": 220,
+      "y": 1620,
+      "w": 220,
+      "h": 44,
+      "label": "Input IDs · [B, T]",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:70-71",
+      "shape": "outline"
+    },
+    {
+      "id": "embedding",
+      "x": 220,
+      "y": 1510,
+      "w": 220,
+      "h": 44,
+      "label": "Embedding",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:65,71",
+      "shape": "box"
+    },
+    {
+      "id": "norm1",
+      "x": 220,
+      "y": 1330,
+      "w": 220,
+      "h": 44,
+      "label": "RMSNorm",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:53,57",
+      "shape": "box"
+    },
+    {
+      "id": "attention",
+      "x": 220,
+      "y": 1210,
+      "w": 220,
+      "h": 44,
+      "label": "Self-Attention",
+      "role": "attention",
+      "evidence": "assets/example_model.py:54,57",
+      "shape": "outline"
+    },
+    {
+      "id": "norm2",
+      "x": 220,
+      "y": 1020,
+      "w": 220,
+      "h": 44,
+      "label": "RMSNorm",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:53,58",
+      "shape": "box"
+    },
+    {
+      "id": "mlp",
+      "x": 220,
+      "y": 900,
+      "w": 220,
+      "h": 44,
+      "label": "SwiGLU MLP",
+      "role": "ffn",
+      "evidence": "assets/example_model.py:54,58",
+      "shape": "outline"
+    },
+    {
+      "id": "final_norm",
+      "x": 220,
+      "y": 550,
+      "w": 220,
+      "h": 44,
+      "label": "RMSNorm",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:67,74",
+      "shape": "box"
+    },
+    {
+      "id": "head",
+      "x": 220,
+      "y": 430,
+      "w": 220,
+      "h": 44,
+      "label": "LM Head",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:68,74",
+      "shape": "box"
+    },
+    {
+      "id": "add1",
+      "x": 312,
+      "y": 1130,
+      "w": 36,
+      "h": 36,
+      "label": "",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:57",
+      "shape": "add"
+    },
+    {
+      "id": "add2",
+      "x": 312,
+      "y": 820,
+      "w": 36,
+      "h": 36,
+      "label": "",
+      "role": "backbone",
+      "evidence": "assets/example_model.py:58",
+      "shape": "add"
+    },
+    {
+      "id": "up",
+      "x": 755,
+      "y": 515,
+      "w": 190,
+      "h": 44,
+      "label": "Linear (up)",
+      "role": "ffn",
+      "evidence": "assets/example_model.py:43",
+      "shape": "up"
+    },
+    {
+      "id": "gate",
+      "x": 1210,
+      "y": 515,
+      "w": 190,
+      "h": 44,
+      "label": "Linear (gate)",
+      "role": "ffn",
+      "evidence": "assets/example_model.py:42",
+      "shape": "up"
+    },
+    {
+      "id": "silu",
+      "x": 1210,
+      "y": 415,
+      "w": 190,
+      "h": 44,
+      "label": "SiLU",
+      "role": "ffn",
+      "evidence": "assets/example_model.py:47",
+      "shape": "box"
+    },
+    {
+      "id": "product",
+      "x": 1062,
+      "y": 355,
+      "w": 36,
+      "h": 36,
+      "label": "",
+      "role": "ffn",
+      "evidence": "assets/example_model.py:47",
+      "shape": "multiply"
+    },
+    {
+      "id": "down",
+      "x": 970,
+      "y": 245,
+      "w": 220,
+      "h": 44,
+      "label": "Linear (down)",
+      "role": "ffn",
+      "evidence": "assets/example_model.py:44",
+      "shape": "down"
+    },
+    {
+      "id": "q",
+      "x": 755,
+      "y": 1475,
+      "w": 160,
+      "h": 44,
+      "label": "Linear (Q)",
+      "role": "attention",
+      "evidence": "assets/example_model.py:26,33-34",
+      "shape": "box"
+    },
+    {
+      "id": "k",
+      "x": 1000,
+      "y": 1475,
+      "w": 160,
+      "h": 44,
+      "label": "Linear (K)",
+      "role": "attention",
+      "evidence": "assets/example_model.py:27,33-34",
+      "shape": "box"
+    },
+    {
+      "id": "v",
+      "x": 1245,
+      "y": 1475,
+      "w": 160,
+      "h": 44,
+      "label": "Linear (V)",
+      "role": "attention",
+      "evidence": "assets/example_model.py:28,33-34",
+      "shape": "box"
+    },
+    {
+      "id": "reshape",
+      "x": 755,
+      "y": 1360,
+      "w": 650,
+      "h": 54,
+      "label": "Reshape + Transpose (Q, K, V)",
+      "role": "attention",
+      "evidence": "assets/example_model.py:33-34",
+      "shape": "box"
+    },
+    {
+      "id": "sdpa",
+      "x": 755,
+      "y": 1210,
+      "w": 650,
+      "h": 68,
+      "label": "SDPA · causal mask\nsoftmax(QKᵀ / √64 + mask) V",
+      "role": "detail",
+      "evidence": "assets/example_model.py:35",
+      "shape": "box",
+      "font_size": 19
+    },
+    {
+      "id": "merge",
+      "x": 915,
+      "y": 1065,
+      "w": 320,
+      "h": 48,
+      "label": "Transpose + Merge Heads",
+      "role": "attention",
+      "evidence": "assets/example_model.py:36",
+      "shape": "box"
+    },
+    {
+      "id": "out_proj",
+      "x": 970,
+      "y": 940,
+      "w": 220,
+      "h": 44,
+      "label": "Linear (output)",
+      "role": "attention",
+      "evidence": "assets/example_model.py:29,36",
+      "shape": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "input_to_emb",
+      "points": [
+        [
+          330,
+          1620
+        ],
+        [
+          330,
+          1554
+        ]
+      ],
+      "evidence": "assets/example_model.py:71"
+    },
+    {
+      "id": "emb_to_norm",
+      "points": [
+        [
+          330,
+          1510
+        ],
+        [
+          330,
+          1374
+        ]
+      ],
+      "evidence": "assets/example_model.py:57,71-73"
+    },
+    {
+      "id": "norm_to_attention",
+      "points": [
+        [
+          330,
+          1330
+        ],
+        [
+          330,
+          1254
+        ]
+      ],
+      "evidence": "assets/example_model.py:57"
+    },
+    {
+      "id": "attention_to_add",
+      "points": [
+        [
+          330,
+          1210
+        ],
+        [
+          330,
+          1166
+        ]
+      ],
+      "evidence": "assets/example_model.py:57"
+    },
+    {
+      "id": "add_to_norm2",
+      "points": [
+        [
+          330,
+          1130
+        ],
+        [
+          330,
+          1064
+        ]
+      ],
+      "evidence": "assets/example_model.py:58"
+    },
+    {
+      "id": "norm2_to_mlp",
+      "points": [
+        [
+          330,
+          1020
+        ],
+        [
+          330,
+          944
+        ]
+      ],
+      "evidence": "assets/example_model.py:58"
+    },
+    {
+      "id": "mlp_to_add",
+      "points": [
+        [
+          330,
+          900
+        ],
+        [
+          330,
+          856
+        ]
+      ],
+      "evidence": "assets/example_model.py:58"
+    },
+    {
+      "id": "blocks_to_final",
+      "points": [
+        [
+          330,
+          820
+        ],
+        [
+          330,
+          594
+        ]
+      ],
+      "evidence": "assets/example_model.py:72-74"
+    },
+    {
+      "id": "norm_to_head",
+      "points": [
+        [
+          330,
+          550
+        ],
+        [
+          330,
+          474
+        ]
+      ],
+      "evidence": "assets/example_model.py:74"
+    },
+    {
+      "id": "residual_attention",
+      "points": [
+        [
+          330,
+          1400
+        ],
+        [
+          135,
+          1400
+        ],
+        [
+          135,
+          1148
+        ],
+        [
+          312,
+          1148
+        ]
+      ],
+      "evidence": "assets/example_model.py:57",
+      "kind": "residual"
+    },
+    {
+      "id": "residual_mlp",
+      "points": [
+        [
+          330,
+          1080
+        ],
+        [
+          165,
+          1080
+        ],
+        [
+          165,
+          838
+        ],
+        [
+          312,
+          838
+        ]
+      ],
+      "evidence": "assets/example_model.py:58",
+      "kind": "residual"
+    },
+    {
+      "id": "logits",
+      "points": [
+        [
+          330,
+          430
+        ],
+        [
+          330,
+          370
+        ]
+      ],
+      "evidence": "assets/example_model.py:68,74",
+      "label": "[B, T, 1024]",
+      "label_x": 350,
+      "label_y": 390
+    },
+    {
+      "id": "mlp_input",
+      "points": [
+        [
+          1080,
+          625
+        ],
+        [
+          1080,
+          590
+        ],
+        [
+          850,
+          590
+        ],
+        [
+          850,
+          559
+        ]
+      ],
+      "evidence": "assets/example_model.py:47"
+    },
+    {
+      "id": "mlp_gate_input",
+      "points": [
+        [
+          1080,
+          590
+        ],
+        [
+          1305,
+          590
+        ],
+        [
+          1305,
+          559
+        ]
+      ],
+      "evidence": "assets/example_model.py:47"
+    },
+    {
+      "id": "gate_to_silu",
+      "points": [
+        [
+          1305,
+          515
+        ],
+        [
+          1305,
+          459
+        ]
+      ],
+      "evidence": "assets/example_model.py:47"
+    },
+    {
+      "id": "up_to_product",
+      "points": [
+        [
+          850,
+          515
+        ],
+        [
+          850,
+          373
+        ],
+        [
+          1062,
+          373
+        ]
+      ],
+      "evidence": "assets/example_model.py:47"
+    },
+    {
+      "id": "silu_to_product",
+      "points": [
+        [
+          1305,
+          415
+        ],
+        [
+          1305,
+          373
+        ],
+        [
+          1098,
+          373
+        ]
+      ],
+      "evidence": "assets/example_model.py:47"
+    },
+    {
+      "id": "product_to_down",
+      "points": [
+        [
+          1080,
+          355
+        ],
+        [
+          1080,
+          289
+        ]
+      ],
+      "evidence": "assets/example_model.py:47",
+      "label": "[B, T, 768]",
+      "label_x": 1100,
+      "label_y": 330
+    },
+    {
+      "id": "mlp_output",
+      "points": [
+        [
+          1080,
+          245
+        ],
+        [
+          1080,
+          200
+        ]
+      ],
+      "evidence": "assets/example_model.py:47",
+      "label": "[B, T, 256]",
+      "label_x": 1100,
+      "label_y": 218
+    },
+    {
+      "id": "attention_input",
+      "points": [
+        [
+          1080,
+          1575
+        ],
+        [
+          1080,
+          1540
+        ],
+        [
+          835,
+          1540
+        ],
+        [
+          835,
+          1519
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-34"
+    },
+    {
+      "id": "attention_k_input",
+      "points": [
+        [
+          1080,
+          1540
+        ],
+        [
+          1080,
+          1519
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-34"
+    },
+    {
+      "id": "attention_v_input",
+      "points": [
+        [
+          1080,
+          1540
+        ],
+        [
+          1325,
+          1540
+        ],
+        [
+          1325,
+          1519
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-34"
+    },
+    {
+      "id": "q_to_reshape",
+      "points": [
+        [
+          835,
+          1475
+        ],
+        [
+          835,
+          1414
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-34"
+    },
+    {
+      "id": "k_to_reshape",
+      "points": [
+        [
+          1080,
+          1475
+        ],
+        [
+          1080,
+          1414
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-34"
+    },
+    {
+      "id": "v_to_reshape",
+      "points": [
+        [
+          1325,
+          1475
+        ],
+        [
+          1325,
+          1414
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-34"
+    },
+    {
+      "id": "reshape_to_sdpa",
+      "points": [
+        [
+          1080,
+          1360
+        ],
+        [
+          1080,
+          1278
+        ]
+      ],
+      "evidence": "assets/example_model.py:33-35",
+      "label": "Q / K / V: [B, 4, T, 64]",
+      "label_x": 1100,
+      "label_y": 1320
+    },
+    {
+      "id": "sdpa_to_merge",
+      "points": [
+        [
+          1080,
+          1210
+        ],
+        [
+          1080,
+          1113
+        ]
+      ],
+      "evidence": "assets/example_model.py:35-36",
+      "label": "[B, 4, T, 64]",
+      "label_x": 1100,
+      "label_y": 1160
+    },
+    {
+      "id": "merge_to_out",
+      "points": [
+        [
+          1075,
+          1065
+        ],
+        [
+          1075,
+          984
+        ],
+        [
+          1080,
+          984
+        ]
+      ],
+      "evidence": "assets/example_model.py:36",
+      "label": "[B, T, 256]",
+      "label_x": 1100,
+      "label_y": 1030
+    },
+    {
+      "id": "attention_output",
+      "points": [
+        [
+          1080,
+          940
+        ],
+        [
+          1080,
+          880
+        ]
+      ],
+      "evidence": "assets/example_model.py:36",
+      "label": "[B, T, 256]",
+      "label_x": 1100,
+      "label_y": 910
+    },
+    {
+      "id": "mlp_expand_top",
+      "points": [
+        [
+          440,
+          900
+        ],
+        [
+          650,
+          140
+        ]
+      ],
+      "kind": "callout",
+      "role": "ffn"
+    },
+    {
+      "id": "mlp_expand_bottom",
+      "points": [
+        [
+          440,
+          944
+        ],
+        [
+          650,
+          660
+        ]
+      ],
+      "kind": "callout",
+      "role": "ffn"
+    },
+    {
+      "id": "attn_expand_top",
+      "points": [
+        [
+          440,
+          1210
+        ],
+        [
+          650,
+          760
+        ]
+      ],
+      "kind": "callout",
+      "role": "attention"
+    },
+    {
+      "id": "attn_expand_bottom",
+      "points": [
+        [
+          440,
+          1254
+        ],
+        [
+          650,
+          1610
+        ]
+      ],
+      "kind": "callout",
+      "role": "attention"
+    }
+  ],
+  "labels": [
+    {
+      "id": "config",
+      "x": 90,
+      "y": 180,
+      "text": "示例配置（来自 Config）\nD = 256, H = 4, dh = 64\nFFN intermediate = 768\nL = 2, vocabulary = 1024",
+      "font_size": 21
+    },
+    {
+      "id": "scope",
+      "x": 90,
+      "y": 330,
+      "text": "纯文本因果解码器\n无 RoPE / 无 KV cache / 无 MoE",
+      "font_size": 18
+    },
+    {
+      "id": "flow_legend",
+      "x": 90,
+      "y": 610,
+      "text": "↑ 实线箭头：数据流\n- - 彩色虚线：模块展开\n+ 残差相加    × 逐元素乘法",
+      "font_size": 17
+    },
+    {
+      "id": "repeat_note",
+      "x": 90,
+      "y": 1470,
+      "text": "相同 block 顺序执行 2 次",
+      "font_size": 17
+    },
+    {
+      "id": "hidden_shape",
+      "x": 350,
+      "y": 1580,
+      "text": "[B, T, 256]",
+      "font_size": 15
+    },
+    {
+      "id": "mlp_input_shape",
+      "x": 1100,
+      "y": 623,
+      "text": "[B, T, 256]",
+      "font_size": 15
+    },
+    {
+      "id": "up_weight",
+      "x": 730,
+      "y": 490,
+      "text": "256 → 768",
+      "font_size": 15
+    },
+    {
+      "id": "gate_weight",
+      "x": 1220,
+      "y": 490,
+      "text": "256 → 768",
+      "font_size": 15
+    },
+    {
+      "id": "attention_params",
+      "x": 675,
+      "y": 830,
+      "text": "H = 4, dh = 64; Q/K/V 投影维度均为 256",
+      "font_size": 17
+    },
+    {
+      "id": "attention_input_shape",
+      "x": 1100,
+      "y": 1575,
+      "text": "[B, T, 256]",
+      "font_size": 15
+    },
+    {
+      "id": "footer",
+      "x": 800,
+      "y": 1740,
+      "text": "结构证据与逐项来源见 example_analysis.md · 此教学示例不代表任何真实发布模型",
+      "anchor": "middle",
+      "font_size": 17
+    }
+  ]
+}
