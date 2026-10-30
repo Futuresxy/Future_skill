@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="app.diagrams.net" type="device" compressed="false">
+  <diagram id="page-1" name="Tiny Decoder · 代码驱动的模型结构图示例">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1600" pageHeight="1800" background="#FFFFFF" math="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object id="title" label="Tiny Decoder · 代码驱动的模型结构图示例" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=32;fontColor=#222222;fontStyle=1;">
+            <mxGeometry as="geometry" x="324.79999999999995" y="14" width="950.4000000000001" height="43.2" />
+          </mxCell>
+        </object>
+        <object id="source" label="教学模型 / 未训练 · 结构依据 assets/example_model.py · 风格参考 InfraTech models" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="263.75" y="61" width="1072.5" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="decoder" label="2 × Decoder Block" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;rounded=1;container=1;collapsible=0;fillColor=none;strokeColor=#444444;dashed=1;dashPattern=8 5;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;fontStyle=1;fontSize=22;">
+            <mxGeometry as="geometry" x="60" y="700" width="450" height="740" />
+          </mxCell>
+        </object>
+        <object id="mlp_detail" label="SwiGLU MLP" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;rounded=1;container=1;collapsible=0;fillColor=none;strokeColor=#91CC46;dashed=1;dashPattern=8 5;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;fontStyle=1;fontSize=22;">
+            <mxGeometry as="geometry" x="650" y="140" width="880" height="520" />
+          </mxCell>
+        </object>
+        <object id="attention_detail" label="Causal Self-Attention · MHA" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;rounded=1;container=1;collapsible=0;fillColor=none;strokeColor=#FF9E10;dashed=1;dashPattern=8 5;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;fontStyle=1;fontSize=22;">
+            <mxGeometry as="geometry" x="650" y="760" width="880" height="850" />
+          </mxCell>
+        </object>
+        <object id="input_ids" label="Input IDs · [B, T]" tooltip="assets/example_model.py:70-71" evidence="assets/example_model.py:70-71">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FFFFFF;strokeColor=#2997EC;fontColor=#2997EC;fontSize=18;rounded=1;arcSize=15;dashed=1;dashPattern=8 5;fontStyle=1;">
+            <mxGeometry as="geometry" x="220" y="1620" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="embedding" label="Embedding" tooltip="assets/example_model.py:65,71" evidence="assets/example_model.py:65,71">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="220" y="1510" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="norm1" label="RMSNorm" tooltip="assets/example_model.py:53,57" evidence="assets/example_model.py:53,57">
+          <mxCell vertex="1" parent="decoder" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="160" y="630" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="attention" label="Self-Attention" tooltip="assets/example_model.py:54,57" evidence="assets/example_model.py:54,57">
+          <mxCell vertex="1" parent="decoder" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FFFFFF;strokeColor=#FF9E10;fontColor=#FF9E10;fontSize=18;rounded=1;arcSize=15;dashed=1;dashPattern=8 5;fontStyle=1;">
+            <mxGeometry as="geometry" x="160" y="510" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="norm2" label="RMSNorm" tooltip="assets/example_model.py:53,58" evidence="assets/example_model.py:53,58">
+          <mxCell vertex="1" parent="decoder" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="160" y="320" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="mlp" label="SwiGLU MLP" tooltip="assets/example_model.py:54,58" evidence="assets/example_model.py:54,58">
+          <mxCell vertex="1" parent="decoder" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FFFFFF;strokeColor=#91CC46;fontColor=#91CC46;fontSize=18;rounded=1;arcSize=15;dashed=1;dashPattern=8 5;fontStyle=1;">
+            <mxGeometry as="geometry" x="160" y="200" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="final_norm" label="RMSNorm" tooltip="assets/example_model.py:67,74" evidence="assets/example_model.py:67,74">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="220" y="550" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="head" label="LM Head" tooltip="assets/example_model.py:68,74" evidence="assets/example_model.py:68,74">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="220" y="430" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="add1" label="+" tooltip="assets/example_model.py:57" evidence="assets/example_model.py:57">
+          <mxCell vertex="1" parent="decoder" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;ellipse;">
+            <mxGeometry as="geometry" x="252" y="430" width="36" height="36" />
+          </mxCell>
+        </object>
+        <object id="add2" label="+" tooltip="assets/example_model.py:58" evidence="assets/example_model.py:58">
+          <mxCell vertex="1" parent="decoder" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#2997EC;strokeColor=#2997EC;fontColor=#FFFFFF;fontSize=18;ellipse;">
+            <mxGeometry as="geometry" x="252" y="120" width="36" height="36" />
+          </mxCell>
+        </object>
+        <object id="up" label="Linear (up)" tooltip="assets/example_model.py:43" evidence="assets/example_model.py:43">
+          <mxCell vertex="1" parent="mlp_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#91CC46;strokeColor=#91CC46;fontColor=#202020;fontSize=18;shape=trapezoid;direction=south;">
+            <mxGeometry as="geometry" x="105" y="375" width="190" height="44" />
+          </mxCell>
+        </object>
+        <object id="gate" label="Linear (gate)" tooltip="assets/example_model.py:42" evidence="assets/example_model.py:42">
+          <mxCell vertex="1" parent="mlp_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#91CC46;strokeColor=#91CC46;fontColor=#202020;fontSize=18;shape=trapezoid;direction=south;">
+            <mxGeometry as="geometry" x="560" y="375" width="190" height="44" />
+          </mxCell>
+        </object>
+        <object id="silu" label="SiLU" tooltip="assets/example_model.py:47" evidence="assets/example_model.py:47">
+          <mxCell vertex="1" parent="mlp_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#91CC46;strokeColor=#91CC46;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="560" y="275" width="190" height="44" />
+          </mxCell>
+        </object>
+        <object id="product" label="×" tooltip="assets/example_model.py:47" evidence="assets/example_model.py:47">
+          <mxCell vertex="1" parent="mlp_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#91CC46;strokeColor=#91CC46;fontColor=#202020;fontSize=18;ellipse;">
+            <mxGeometry as="geometry" x="412" y="215" width="36" height="36" />
+          </mxCell>
+        </object>
+        <object id="down" label="Linear (down)" tooltip="assets/example_model.py:44" evidence="assets/example_model.py:44">
+          <mxCell vertex="1" parent="mlp_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#91CC46;strokeColor=#91CC46;fontColor=#202020;fontSize=18;shape=trapezoid;direction=north;">
+            <mxGeometry as="geometry" x="320" y="105" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="q" label="Linear (Q)" tooltip="assets/example_model.py:26,33-34" evidence="assets/example_model.py:26,33-34">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FF9E10;strokeColor=#FF9E10;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="105" y="715" width="160" height="44" />
+          </mxCell>
+        </object>
+        <object id="k" label="Linear (K)" tooltip="assets/example_model.py:27,33-34" evidence="assets/example_model.py:27,33-34">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FF9E10;strokeColor=#FF9E10;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="350" y="715" width="160" height="44" />
+          </mxCell>
+        </object>
+        <object id="v" label="Linear (V)" tooltip="assets/example_model.py:28,33-34" evidence="assets/example_model.py:28,33-34">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FF9E10;strokeColor=#FF9E10;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="595" y="715" width="160" height="44" />
+          </mxCell>
+        </object>
+        <object id="reshape" label="Reshape + Transpose (Q, K, V)" tooltip="assets/example_model.py:33-34" evidence="assets/example_model.py:33-34">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FF9E10;strokeColor=#FF9E10;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="105" y="600" width="650" height="54" />
+          </mxCell>
+        </object>
+        <object id="sdpa" label="SDPA · causal mask&#10;softmax(QKᵀ / √64 + mask) V" tooltip="assets/example_model.py:35" evidence="assets/example_model.py:35">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#8035A5;strokeColor=#8035A5;fontColor=#FFFFFF;fontSize=19;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="105" y="450" width="650" height="68" />
+          </mxCell>
+        </object>
+        <object id="merge" label="Transpose + Merge Heads" tooltip="assets/example_model.py:36" evidence="assets/example_model.py:36">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FF9E10;strokeColor=#FF9E10;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="265" y="305" width="320" height="48" />
+          </mxCell>
+        </object>
+        <object id="out_proj" label="Linear (output)" tooltip="assets/example_model.py:29,36" evidence="assets/example_model.py:29,36">
+          <mxCell vertex="1" parent="attention_detail" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;fillColor=#FF9E10;strokeColor=#FF9E10;fontColor=#202020;fontSize=18;rounded=1;arcSize=15;">
+            <mxGeometry as="geometry" x="320" y="180" width="220" height="44" />
+          </mxCell>
+        </object>
+        <object id="input_to_emb" label="" evidence="assets/example_model.py:71" tooltip="assets/example_model.py:71">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="input_ids" target="embedding">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="emb_to_norm" label="" evidence="assets/example_model.py:57,71-73" tooltip="assets/example_model.py:57,71-73">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="embedding" target="norm1">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="norm_to_attention" label="" evidence="assets/example_model.py:57" tooltip="assets/example_model.py:57">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="norm1" target="attention">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="attention_to_add" label="" evidence="assets/example_model.py:57" tooltip="assets/example_model.py:57">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="attention" target="add1">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="add_to_norm2" label="" evidence="assets/example_model.py:58" tooltip="assets/example_model.py:58">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="add1" target="norm2">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="norm2_to_mlp" label="" evidence="assets/example_model.py:58" tooltip="assets/example_model.py:58">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="norm2" target="mlp">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="mlp_to_add" label="" evidence="assets/example_model.py:58" tooltip="assets/example_model.py:58">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="mlp" target="add2">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="blocks_to_final" label="" evidence="assets/example_model.py:72-74" tooltip="assets/example_model.py:72-74">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="add2" target="final_norm">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="norm_to_head" label="" evidence="assets/example_model.py:74" tooltip="assets/example_model.py:74">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="final_norm" target="head">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="residual_attention" label="" evidence="assets/example_model.py:57" tooltip="assets/example_model.py:57">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="add1">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="330" y="1400" />
+              <Array as="points">
+                <mxPoint x="135" y="1400" />
+                <mxPoint x="135" y="1148" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="residual_mlp" label="" evidence="assets/example_model.py:58" tooltip="assets/example_model.py:58">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="add2">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="330" y="1080" />
+              <Array as="points">
+                <mxPoint x="165" y="1080" />
+                <mxPoint x="165" y="838" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="logits" label="" evidence="assets/example_model.py:68,74" tooltip="assets/example_model.py:68,74">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" source="head">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="330" y="370" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="logits_label" label="[B, T, 1024]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="350" y="375" width="198.00000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="mlp_input" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="up">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="1080" y="625" />
+              <Array as="points">
+                <mxPoint x="1080" y="590" />
+                <mxPoint x="850" y="590" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="mlp_gate_input" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="gate">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="1080" y="590" />
+              <Array as="points">
+                <mxPoint x="1305" y="590" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="gate_to_silu" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="gate" target="silu">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="up_to_product" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" source="up" target="product">
+            <mxGeometry as="geometry" relative="1">
+              <Array as="points">
+                <mxPoint x="850" y="373" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="silu_to_product" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" source="silu" target="product">
+            <mxGeometry as="geometry" relative="1">
+              <Array as="points">
+                <mxPoint x="1305" y="373" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="product_to_down" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="product" target="down">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="product_to_down_label" label="[B, T, 768]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="315" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="mlp_output" label="" evidence="assets/example_model.py:47" tooltip="assets/example_model.py:47">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" source="down">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="1080" y="200" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="mlp_output_label" label="[B, T, 256]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="203" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="attention_input" label="" evidence="assets/example_model.py:33-34" tooltip="assets/example_model.py:33-34">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="q">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="1080" y="1575" />
+              <Array as="points">
+                <mxPoint x="1080" y="1540" />
+                <mxPoint x="835" y="1540" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="attention_k_input" label="" evidence="assets/example_model.py:33-34" tooltip="assets/example_model.py:33-34">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="k">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="1080" y="1540" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="attention_v_input" label="" evidence="assets/example_model.py:33-34" tooltip="assets/example_model.py:33-34">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="v">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="sourcePoint" x="1080" y="1540" />
+              <Array as="points">
+                <mxPoint x="1325" y="1540" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="q_to_reshape" label="" evidence="assets/example_model.py:33-34" tooltip="assets/example_model.py:33-34">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.12307692307692308;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="q" target="reshape">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="k_to_reshape" label="" evidence="assets/example_model.py:33-34" tooltip="assets/example_model.py:33-34">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="k" target="reshape">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="v_to_reshape" label="" evidence="assets/example_model.py:33-34" tooltip="assets/example_model.py:33-34">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8769230769230769;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="v" target="reshape">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="reshape_to_sdpa" label="" evidence="assets/example_model.py:33-35" tooltip="assets/example_model.py:33-35">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="reshape" target="sdpa">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="reshape_to_sdpa_label" label="Q / K / V: [B, 4, T, 64]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="1305" width="396.00000000000006" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="sdpa_to_merge" label="" evidence="assets/example_model.py:35-36" tooltip="assets/example_model.py:35-36">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.515625;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="sdpa" target="merge">
+            <mxGeometry as="geometry" relative="1" />
+          </mxCell>
+        </object>
+        <object id="sdpa_to_merge_label" label="[B, 4, T, 64]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="1145" width="214.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="merge_to_out" label="" evidence="assets/example_model.py:36" tooltip="assets/example_model.py:36">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" source="merge" target="out_proj">
+            <mxGeometry as="geometry" relative="1">
+              <Array as="points">
+                <mxPoint x="1075" y="984" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="merge_to_out_label" label="[B, T, 256]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="1015" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="attention_output" label="" evidence="assets/example_model.py:36" tooltip="assets/example_model.py:36">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=block;endFill=1;strokeColor=#444444;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" source="out_proj">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="1080" y="880" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="attention_output_label" label="[B, T, 256]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#222222;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="895" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="mlp_expand_top" label="" evidence="" tooltip="">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=none;endFill=1;strokeColor=#91CC46;dashed=1;dashPattern=8 5;exitX=1;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" source="mlp">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="650" y="140" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="mlp_expand_bottom" label="" evidence="" tooltip="">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=none;endFill=1;strokeColor=#91CC46;dashed=1;dashPattern=8 5;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" source="mlp">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="650" y="660" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="attn_expand_top" label="" evidence="" tooltip="">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=none;endFill=1;strokeColor=#FF9E10;dashed=1;dashPattern=8 5;exitX=1;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" source="attention">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="650" y="760" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="attn_expand_bottom" label="" evidence="" tooltip="">
+          <mxCell edge="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;edgeStyle=none;rounded=0;endArrow=none;endFill=1;strokeColor=#FF9E10;dashed=1;dashPattern=8 5;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" source="attention">
+            <mxGeometry as="geometry" relative="1">
+              <mxPoint as="targetPoint" x="650" y="1610" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="config" label="示例配置（来自 Config）&#10;D = 256, H = 4, dh = 64&#10;FFN intermediate = 768&#10;L = 2, vocabulary = 1024" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=21;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="90" y="159" width="554.4000000000001" height="113.4" />
+          </mxCell>
+        </object>
+        <object id="scope" label="纯文本因果解码器&#10;无 RoPE / 无 KV cache / 无 MoE" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=18;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="90" y="312" width="534.6" height="48.6" />
+          </mxCell>
+        </object>
+        <object id="flow_legend" label="↑ 实线箭头：数据流&#10;- - 彩色虚线：模块展开&#10;+ 残差相加    × 逐元素乘法" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=17;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="90" y="593" width="317.90000000000003" height="68.85000000000001" />
+          </mxCell>
+        </object>
+        <object id="repeat_note" label="相同 block 顺序执行 2 次" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=17;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="90" y="1453" width="317.90000000000003" height="22.950000000000003" />
+          </mxCell>
+        </object>
+        <object id="hidden_shape" label="[B, T, 256]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="350" y="1565" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="mlp_input_shape" label="[B, T, 256]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="608" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="up_weight" label="256 → 768" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="730" y="475" width="148.5" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="gate_weight" label="256 → 768" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="1220" y="475" width="148.5" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="attention_params" label="H = 4, dh = 64; Q/K/V 投影维度均为 256" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=17;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="675" y="813" width="598.4000000000001" height="22.950000000000003" />
+          </mxCell>
+        </object>
+        <object id="attention_input_shape" label="[B, T, 256]" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=15;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="1100" y="1560" width="181.50000000000003" height="20.25" />
+          </mxCell>
+        </object>
+        <object id="footer" label="结构证据与逐项来源见 example_analysis.md · 此教学示例不代表任何真实发布模型" tooltip="" evidence="">
+          <mxCell vertex="1" parent="1" style="whiteSpace=wrap;html=0;fontFamily=Arial;strokeWidth=1.5;text;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=17;fontColor=#444444;fontStyle=0;">
+            <mxGeometry as="geometry" x="341.84999999999997" y="1723" width="916.3000000000001" height="22.950000000000003" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

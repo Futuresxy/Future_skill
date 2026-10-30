@@ -47,6 +47,8 @@ python scripts/render_diagram.py assets/example.architecture.json --output <输�
 
 实际使用时先复制模板到工作目录，按已分析的模型重写节点、边、面板、尺寸、文字和 `evidence`，再渲染。模板是标明为教学示例的小型网络，不是任何真实模型的事实来源。格式和图片导出见 [references/diagram-format.md](references/diagram-format.md)。脚本提供自由坐标和基础组件，不替代模型分析，也不保证自动布局无冲突。复杂矩阵/张量图可扩展 SVG 或另写局部绘图代码。
 
+用户需要 draw.io 可编辑文件时，使用 `python3 scripts/export_drawio.py <图描述.json> [其他页.json] --output <model>.drawio`。导出原生形状、文字、容器与连接线，保留来源元数据，不能以一张嵌入图片替代可编辑结构。详见格式参考。
+
 同时导出 PNG（推荐长边至少 2400 px，优先无损；保持可读字号），需要时附 JPG/PDF。可使用环境已有的 SVG 光栅化工具，不假定特定系统路径或商业应用存在。只有 SVG 而未生成实际图片时不能声称图片交付完成。图像生成工具可用于无语义装饰；模块名、公式和连接关系应由可控的矢量/代码层绘制。
 
 ## 校验并交付
@@ -59,6 +61,7 @@ python scripts/render_diagram.py assets/example.architecture.json --output <输�
 
 - `<model>_architecture.png`：可直接使用的结构图片。
 - `<model>_architecture.svg`（或用户指定的可编辑格式）。
+- 用户要求的 `<model>.drawio`：原生可编辑节点与边，可包含多页。
 - 可复现的图描述 JSON/绘图源代码。
 - `<model>_analysis.md`：结构说明、证据索引、来源与剩余不确定性。
 

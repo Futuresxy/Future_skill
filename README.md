@@ -6,7 +6,7 @@
 
 [`model-architecture-diagram`](model-architecture-diagram/SKILL.md) 从模型代码、仓库、配置或技术报告还原计算路径，生成参考 [InfraTech/models](https://github.com/CalvinXKY/InfraTech/tree/main/models) 的模型结构图。
 
-技能包含代码分析流程、源图风格研究、纯 Python SVG 渲染器，以及可复现的源码—结构描述—证据表—图片示例。支持整体骨架、Attention、FFN/MoE、多模态前端等不同层级；图中的结构以当前模型证据为准。
+技能包含代码分析流程、源图风格研究、纯 Python SVG 渲染器和原生 draw.io 导出器，以及可复现的源码—结构描述—证据表—图片示例。支持整体骨架、Attention、FFN/MoE、多模态前端等不同层级；图中的结构以当前模型证据为准。
 
 ![教学模型结构图](model-architecture-diagram/assets/example_architecture.png)
 
@@ -19,7 +19,7 @@
 ```text
 使用 $model-architecture-diagram 分析这个仓库中的模型实现：<仓库 URL 或本地路径>。
 选择 <模型变体/配置/revision>，绘制 InfraTech 风格的整体架构及核心模块展开图，
-输出 PNG、可编辑 SVG、绘图描述和带源码行号的结构分析。
+输出 PNG、可编辑 SVG 和 draw.io 文件、绘图描述和带源码行号的结构分析。
 ```
 
 ```text

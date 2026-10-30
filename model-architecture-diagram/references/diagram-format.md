@@ -98,3 +98,14 @@ python3 -m unittest discover -s tests -v
 ```
 
 示例 `assets/example_model.py` 是教学用 PyTorch 源码；不需要执行它就能检查绘图链路。它不是用于测量模型性能的基准，也不能当作其他模型结构的依据。
+
+## 原生 draw.io 导出
+
+```bash
+python3 scripts/export_drawio.py model.json --output model.drawio
+python3 scripts/export_drawio.py overview.json attention.json --output model.drawio
+```
+
+多输入依次对应多页。导出未压缩 mxfile/mxGraphModel XML，节点、文字、容器和连线均为原生对象；节点的 evidence 保存在 Edit Data 元数据中。位于面板内的节点随容器移动；边端点与节点边界相符时自动挂接，移动节点会带动连接线端点。浮空线端点作为可编辑坐标保留。
+
+可以在 draw.io Desktop 或 diagrams.net 中使用 File → Open From → Device 打开。SVG 与 draw.io 使用不同字体/形状引擎，导出后检查换行、梯形方向、路由和端点；XML 通过校验不等于已完成编辑器视觉验收。不要把 PNG/SVG 作为单张图片嵌入后声称所有模块可编辑。
